@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.9)  9 AUG 2021 18:01
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.9)  10 AUG 2021 19:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/lllgoyour/Documents/GitHub/hijiangtao/resume/resume-zh_CN
-(/Users/lllgoyour/Documents/GitHub/hijiangtao/resume/resume-zh_CN.tex
+**/Users/lllgoyour/Documents/GitHub/resume/latex/resume-zh_CN
+(/Users/lllgoyour/Documents/GitHub/resume/latex/resume-zh_CN.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (./resume.cls
 Document Class: resume 2015/05/25 An elegant Résumé class
@@ -326,7 +326,8 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) (./resume-zh_CN.aux)
+)
+No file resume-zh_CN.aux.
 \openout1 = `resume-zh_CN.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -339,7 +340,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 10.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 10.
@@ -453,16 +454,31 @@ Package fontspec Info: Font family 'AdobeHeitiStd-Regular.otf(0)' created for
 (fontspec)             <->"[fonts/zh_CN-Adobe/AdobeHeitiStd-Regular.otf]/OT:script=hani;language=dflt;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-[1
+)
+Runaway argument?
+{\textbf {无} \par \par \par \par \section {项目作品} \begin {it\ETC.
+! File ended while scanning use of \datedsubsection.
+<inserted text> 
+                \par 
+<*> .../Documents/GitHub/resume/latex/resume-zh_CN
+                                                  
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
 
-] (./resume-zh_CN.aux) ) 
+! Emergency stop.
+<*> .../Documents/GitHub/resume/latex/resume-zh_CN
+                                                  
+*** (job aborted, no legal \end found)
+
+ 
 Here is how much of TeX's memory you used:
- 8312 strings out of 476919
- 201768 string characters out of 5821841
- 578219 words of memory out of 5000000
- 28194 multiletter control sequences out of 15000+600000
- 403726 words of font info for 64 fonts, out of 8000000 for 9000
+ 8259 strings out of 476919
+ 197977 string characters out of 5821841
+ 557219 words of memory out of 5000000
+ 28147 multiletter control sequences out of 15000+600000
+ 403718 words of font info for 63 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,5n,117p,374b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on resume-zh_CN.pdf (1 page).
+ 113i,1n,117p,369b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.9)  10 AUG 2021 19:35
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.9)  11 AUG 2021 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -456,7 +456,7 @@ Package fontspec Info: Font family 'AdobeHeitiStd-Regular.otf(0)' created for
 
 )
 Runaway argument?
-{\textbf {无} \par \par \par \par \section {项目作品} \begin {it\ETC.
+{\textbf {无} \par \section {项目作品} \begin {itemize}[parsep=0\ETC.
 ! File ended while scanning use of \datedsubsection.
 <inserted text> 
                 \par 

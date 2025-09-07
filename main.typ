@@ -59,11 +59,11 @@
     let undergrad-date = [#translate-date(8, 2025) -- #translate-date(5, 2029)]
     translate(
       en: cventry(
-        tl: [B.A. in Mathematics and Computer Science, and minor in Philosophy at *Colby College*, ME, US],
+        tl: [B.A. in Mathematics and Computer Science, and minor in music at *Colby College*, ME, US],
         tr: undergrad-date,
       )[],
       zh: cventry(
-        tl: [科尔比学院，纯数学与计算机专业和哲学辅修，文学士，美国],
+        tl: [科尔比学院，纯数学与计算机专业和音乐辅修，文学士，美国],
         tr: undergrad-date,
       )[],
     )

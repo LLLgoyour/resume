@@ -30,38 +30,46 @@
 
   let edu = {
     let hs-courses = (
-      ([], [Introduction to Abstract Algebra], [抽象代数导论]),
+      ([], [Abstract Algebra], [抽象代数]),
       ([], [Honors Differential Equations], [荣誉微分方程]),
       ([], [AP English Literature and Composition], [AP英语文学与写作]),
     )
     translate(en: [== Education], zh: [== 教育经历])
-    let gpa = 3.81
+    let hs-gpa = 3.81
+    let colby-gpa = 0
     let hs-date = [#translate-date(8, 2021) -- #translate-date(5, 2025)]
     translate(
       en: cventry(
-        tl: [High School degree at *Fountain Valley School of Colorado*, CO, US],
+        tl: [High School at *Fountain Valley School of Colorado*, CO, US],
         tr: hs-date,
-      )[GPA #gpa/4.00#noSimple(simple: [,
+      )[GPA #hs-gpa/4.00#noSimple(simple: [,
           Taken courses: #hs-courses.map(item => item.at(1)).join(", ")])[\
           Taken courses: #hs-courses.map(item => item.at(1)).join(", ")]],
       zh: cventry(
         tl: [科罗拉多喷泉谷学校，高中，美国],
         tr: hs-date,
-      )[GPA #gpa/4.00\
+      )[GPA #hs-gpa/4.00\
         部分已完成课程：#hs-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
     )
 
-    let undergrad-courses = ()
-    let undergrad-date = [#translate-date(8, 2025) -- #translate-date(5, 2029)]
+    let colby-courses = (
+      ([CS 231], [Data Structures and Algorithms], [数据结构和算法]),
+      ([MA 160], [Series and Multivariable Calculus], [级数和多元微积分]),
+      ([MA 262], [Vector Calculus], [向量分析]),
+    )
+    let colby-date = [#translate-date(8, 2025) -- #translate-date(5, 2029)]
     translate(
       en: cventry(
-        tl: [B.A. in Mathematics and Computer Science, and minor in music at *Colby College*, ME, US],
-        tr: undergrad-date,
-      )[],
+        tl: [B.A. candidate in Mathematics and Computer Science at *Colby College*, ME, US],
+        tr: colby-date,
+      )[Minor in Music, GPA N/A (First semester) #noSimple(simple: [,
+          selected courses: #colby-courses.map(item => item.at(0)).join(", ")])[\
+          Selected courses: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")]],
       zh: cventry(
-        tl: [科尔比学院，纯数学与计算机专业和音乐辅修，文学士，美国],
-        tr: undergrad-date,
-      )[],
+        tl: [科尔比学院，数学与计算机专业文学士，美国缅因州],
+        tr: colby-date,
+      )[副专业：音乐, GPA N/A (First semester) \
+        部分选修课程：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
     )
   }
 
@@ -81,6 +89,27 @@
       )[#noSimple[
         - 与媒体团队合作，为学校活动（包括体育比赛和学术竞赛）现场直播、制作和编辑视频。
         - 协助管理学校的Instagram账户，宣传活动并与社区互动。
+      ]],
+    )
+  }
+  let chinadaily = {
+    let chinadaily-date = [#translate-date(6, 2025) -- #translate-date(7, 2025)]
+    translate(
+      en: cventry(
+        tl: [*China Daily*, Features Reporter Intern],
+        tr: chinadaily-date,
+      )[#noSimple[
+        - Engaged in interviews with renowned artists, including Russian theater director Yury Butusov, enriching content quality.
+        - Mastered video editing techniques, producing compelling short videos that enhanced project visibility.
+        - Contributed to high-profile cultural events, demonstrating adaptability and a commitment to excellence in reporting.
+      ]],
+      zh: cventry(
+        tl: [*中国日报社*，特写记者实习生],
+        tr: chinadaily-date,
+      )[ #noSimple[
+        - 参与采访知名艺术家，包括俄罗斯戏剧导演尤里·布图索夫，丰富了内容质量。
+        - 掌握视频剪辑技巧，制作了提高项目影响力的短视频。
+        - 参与高规格文化活动报道，展现了适应力与对新闻报道卓越性的追求。
       ]],
     )
   }
@@ -299,13 +328,19 @@
   [#link("mailto:xchdai@gmail.com")[xchdai\@gmail.com] $dot.c$ #iconlink("https://lllgoyour.com") $dot.c$ #iconlink(
       "https://github.com/LLLgoyour",
       icon: "github",
-    )]
+    )
+    #iconlink(
+      "https://www.linkedin.com/in/jack-d-91259534b/",
+      icon: "linkedin",
+    )
+  ]
 
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
   fvs-media
-  // dagro
+  chinadaily
+  dagro
   // kray
 
   // translate(en: [== Related Projects], zh: [== 项目经历])

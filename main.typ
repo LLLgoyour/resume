@@ -338,8 +338,8 @@
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
-  fvs-media
   chinadaily
+  fvs-media
   dagro
   // kray
 

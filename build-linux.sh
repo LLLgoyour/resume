@@ -13,8 +13,8 @@ for f in "${files[@]}"; do
 done
 
 echo '#runReader(Chinese)' >> "resume-cn.typ"
-echo '#runReader(Simplified)' >> "resume.typ"
-echo '#runReader(EnglishFull)' >> "resume-elab.typ"
+echo '#runReader(Simplified)' >> "cv.typ"
+echo '#runReader(EnglishFull)' >> "resume.typ"
 
 for f in "${files[@]}"; do
   echo "Building $f.typ"

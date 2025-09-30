@@ -29,62 +29,74 @@
   )
 
   let edu = {
-    let hs-courses = (
-      ([], [Abstract Algebra], [抽象代数]),
-      ([], [Honors Differential Equations], [荣誉微分方程]),
-      ([], [AP English Literature and Composition], [AP英语文学与写作]),
-    )
     translate(en: [== Education], zh: [== 教育经历])
-    let hs-gpa = 3.81
     let colby-gpa = 0
-    let hs-date = [#translate-date(8, 2021) -- #translate-date(5, 2025)]
-    translate(
-      en: cventry(
-        tl: [High School at *Fountain Valley School of Colorado*, CO, US],
-        tr: hs-date,
-      )[GPA #hs-gpa/4.00#noSimple(simple: [,
-          Taken courses: #hs-courses.map(item => item.at(1)).join(", ")])[\
-          Taken courses: #hs-courses.map(item => item.at(1)).join(", ")]],
-      zh: cventry(
-        tl: [科罗拉多喷泉谷学校，高中，美国],
-        tr: hs-date,
-      )[GPA #hs-gpa/4.00\
-        部分已完成课程：#hs-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
-    )
 
     let colby-courses = (
       ([CS 231], [Data Structures and Algorithms], [数据结构和算法]),
       ([MA 160], [Series and Multivariable Calculus], [级数和多元微积分]),
       ([MA 262], [Vector Calculus], [向量分析]),
     )
-    let colby-date = [#translate-date(8, 2025) -- #translate-date(5, 2029)]
+    let colby-date = [_#translate-date(8, 2025) -- #translate(en: [Present], zh: [至今])_
+    ]
+    let colby-degree = translate(
+      en: [B.A. Candidate in Mathematics and Computer Science],
+      zh: [数学与计算机专业文学士],
+    )
     translate(
       en: cventry(
-        tl: [B.A. candidate in Mathematics and Computer Science at *Colby College*, ME, US],
+        tl: [*Colby College*, Waterville, ME, USA],
         tr: colby-date,
-      )[Minor in Music, GPA N/A (First semester) #noSimple(simple: [,
-          selected courses: #colby-courses.map(item => item.at(0)).join(", ")])[\
-          Selected courses: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")]],
+      )[#colby-degree (with Minor in Music), GPA N/A (First Semester)
+        #noSimple(simple: [,
+          _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")])[\
+          _Selected Courses_: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")]],
       zh: cventry(
-        tl: [科尔比学院，数学与计算机专业文学士，美国缅因州],
+        tl: [科尔比学院，美国，缅因州，沃特维尔],
         tr: colby-date,
-      )[副专业：音乐, GPA N/A (First semester) \
-        部分选修课程：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
+      )[#colby-degree，（副专业：音乐），GPA N/A (第一学期) \
+        _部分选修课程_：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
+    )
+  }
+
+  let camden-filmfest = {
+    let camden-date = [_#translate-date(9, 2025)_]
+    translate(
+      en: cventry(
+        tl: [*Camden Film Festival*, _Volunteer_, Camden, ME, USA],
+        tr: camden-date,
+      )[
+        #noSimple[
+          - Assisted in event setup, ticketing, and guiding guests at the Camden Opera House.
+          - Supported screenings and live events, ensuring smooth operations for attendees and staff.
+          - Gained hands-on experience in arts event management and community engagement.
+        ]
+      ],
+      zh: cventry(
+        tl: [*卡姆登歌剧院*，卡姆登电影节志愿者],
+        tr: camden-date,
+      )[
+        #noSimple[
+          - 协助活动布置、票务工作，并为Camden电影节的来宾提供引导。
+          - 支持放映和现场活动，确保观众和工作人员的顺利体验。
+          - 获得了艺术活动管理和社区参与的实践经验。
+        ]
+      ],
     )
   }
 
   let fvs-media = {
-    let fvs-date = [#translate-date(8, 2022) -- #translate-date(5, 2025)]
+    let fvs-date = [_#translate-date(8, 2022) -- #translate-date(5, 2025)_]
     translate(
       en: cventry(
-        tl: [*Fountain Valley School of Colorado*, Media Team],
+        tl: [*Fountain Valley School of Colorado*, _Media Team_, Colorado Springs, CO, USA],
         tr: fvs-date,
       )[#noSimple[
         - Collaborated with the media team to broadcast, create and edit videos for school events, including sports games and academic competitions.
         - Assisted in managing the school's Instagram accounts, promoting events and engaging with the community.
       ]],
       zh: cventry(
-        tl: [*科罗拉多喷泉谷学校*，媒体团队],
+        tl: [*科罗拉多喷泉谷学校*，_媒体团队_，美国，科罗拉多州，科罗拉多泉],
         tr: fvs-date,
       )[#noSimple[
         - 与媒体团队合作，为学校活动（包括体育比赛和学术竞赛）现场直播、制作和编辑视频。
@@ -92,11 +104,12 @@
       ]],
     )
   }
+
   let chinadaily = {
-    let chinadaily-date = [#translate-date(6, 2025) -- #translate-date(7, 2025)]
+    let chinadaily-date = [_#translate-date(6, 2025) -- #translate-date(7, 2025)_]
     translate(
       en: cventry(
-        tl: [*China Daily*, Features Reporter Intern],
+        tl: [*China Daily*, _Features Reporter Intern_, Beijing, China],
         tr: chinadaily-date,
       )[#noSimple[
         - Engaged in interviews with renowned artists, including Russian theater director Yury Butusov, enriching content quality.
@@ -104,7 +117,7 @@
         - Contributed to high-profile cultural events, demonstrating adaptability and a commitment to excellence in reporting.
       ]],
       zh: cventry(
-        tl: [*中国日报社*，特写记者实习生],
+        tl: [*中国日报社*，_特写记者实习生_，中国，北京],
         tr: chinadaily-date,
       )[ #noSimple[
         - 参与采访知名艺术家，包括俄罗斯戏剧导演尤里·布图索夫，丰富了内容质量。
@@ -113,11 +126,12 @@
       ]],
     )
   }
+
   let dagro = {
-    let dagro-date = [#translate-date(6, 2022) -- #translate-date(8, 2022), #translate-date(6, 2023) -- #translate-date(8, 2023)]
+    let dagro-date = [_#translate-date(6, 2022) -- #translate-date(8, 2022), #translate-date(6, 2023) -- #translate-date(8, 2023)_]
     translate(
       en: cventry(
-        tl: [*Dagro Chemical (Chengwu) Co., Ltd.*, Chemical Lab Intern and Inventory Management],
+        tl: [*Dagro Chemical (Chengwu) Co., Ltd.*, _Chemical Lab Intern_, Chengwu, Shandong, China],
         tr: dagro-date,
       )[#noSimple[
         - Assisted in the chemical laboratory, analyzing concentrations of samples and ensuring process quality across multiple stages of production for agricultural product intermediates.
@@ -126,7 +140,7 @@
         - Observed and studied colleagues’ research and development techniques to improve production procedures.
       ]],
       zh: cventry(
-        tl: [*达瑞化工（成武）有限公司*，化学实验室实习生和库存管理],
+        tl: [*达瑞化工（成武）有限公司*，_化学实验室实习生_，中国，山东，成武],
         tr: dagro-date,
       )[#noSimple[
         - 在化学实验室协助工作，分析样品浓度，确保农业产品中间体生产的多个阶段的工艺质量。
@@ -137,31 +151,31 @@
     )
   }
 
-  let kray = {
-    let kray-date = [#translate-date(6, 2024) -- #translate-date(8, 2024)]
-    translate(
-      en: cventry(
-        tl: [*Kray Builds Design & Construction, LLC*, Construction Assistant],
-        tr: kray-date,
-      )[#noSimple[
-        - Excavated a pit to install a rod for hanging lights and electrical outlets, ensuring proper measurements and stability.
-        - Collaborated with other workers and the project leader to plan and execute the installation, following county safety standards and functional requirements.
-      ]],
-      zh: cventry(
-        tl: [*克雷设计与施工有限责任公司*，建筑助理],
-        tr: kray-date,
-      )[#noSimple[
-        - 挖掘坑洞以安装悬挂灯具和电源插座的杆子，确保测量和稳定性。
-        - 与其他工人和项目负责人合作，计划和执行安装，遵循县安全标准和功能要求。
-      ]],
-    )
-  }
+  // let kray = {
+  //   let kray-date = [_#translate-date(6, 2024) -- #translate-date(8, 2024)_]
+  //   translate(
+  //     en: cventry(
+  //       tl: [*Kray Builds Design & Construction, LLC*, _Construction Assistant_, ],
+  //       tr: kray-date,
+  //     )[#noSimple[
+  //       - Excavated a pit to install a rod for hanging lights and electrical outlets, ensuring proper measurements and stability.
+  //       - Collaborated with other workers and the project leader to plan and execute the installation, following county safety standards and functional requirements.
+  //     ]],
+  //     zh: cventry(
+  //       tl: [*克雷设计与施工有限责任公司*，建筑助理],
+  //       tr: kray-date,
+  //     )[#noSimple[
+  //       - 挖掘坑洞以安装悬挂灯具和电源插座的杆子，确保测量和稳定性。
+  //       - 与其他工人和项目负责人合作，计划和执行安装，遵循县安全标准和功能要求。
+  //     ]],
+  //   )
+  // }
 
   let achievements = {
-    let apscholar-date = [#translate-date(4, 2023) -- #translate-date(5, 2025)]
-    let deanslist-date = [#translate-date(8, 2021) -- #translate-date(5, 2025)]
-    let usaco-date = [#translate-date(12, 2023)]
-    let yale-date = [#translate-date(7, 2023)]
+    let apscholar-date = [_#translate-date(4, 2023) -- #translate-date(5, 2025)_]
+    let deanslist-date = [_#translate-date(8, 2021) -- #translate-date(5, 2025)_]
+    let usaco-date = [_#translate-date(12, 2023)_]
+    let yale-date = [_#translate-date(7, 2023)_]
     translate(
       en: cventry(
         tl: [*Dean's List*],
@@ -212,7 +226,7 @@
     )
   }
   let presentation = {
-    let presentation-date = [#translate-date(10, 2023)]
+    let presentation-date = [_#translate-date(10, 2023)_]
     translate(
       en: cventry(
         tl: [*Presenter, Unity Day Workshop: Diversity in Photography*],
@@ -229,7 +243,7 @@
     )
   }
   let handout = {
-    let handout-date = [#translate-date(7, 2021) -- #translate-date(12, 2022)]
+    let handout-date = [_#translate-date(7, 2021) -- #translate-date(12, 2022)_]
     let ghLink = githublink("LLLgoyour/Handout")
     translate(
       en: cventry(
@@ -338,17 +352,21 @@
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
+  camden-filmfest
   chinadaily
   fvs-media
   dagro
   // kray
 
-  // translate(en: [== Related Projects], zh: [== 项目经历])
-
+  noSimple[
+    #translate(en: [== Related Projects], zh: [== 项目经历])
+    //
+    // cs231
+    #handout
+  ]
 
   noSimple[
     #translate(en: [== Academic Experience], zh: [== 学术经历])
-    #handout
     #presentation
   ]
   translate(en: [== Achievements], zh: [== 成就])

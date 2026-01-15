@@ -2,7 +2,7 @@
 
 rm -f *.pdf
 
-files=("resume-cn" "resume" "resume-elab")
+files=("resume-cn" "cv" "resume")
 echo "Generating..."
 
 for f in "${files[@]}"; do

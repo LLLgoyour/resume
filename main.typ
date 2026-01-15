@@ -30,12 +30,22 @@
 
   let edu = {
     translate(en: [== Education], zh: [== 教育经历])
-    let colby-gpa = 0
+    let colby-gpa = 3.6
 
     let colby-courses = (
       ([CS 231], [Data Structures and Algorithms], [数据结构和算法]),
       ([MA 160], [Series and Multivariable Calculus], [级数和多元微积分]),
       ([MA 262], [Vector Calculus], [向量分析]),
+    )
+
+    let in-progress-courses = (
+      ([CS 252], [Mathematical Data Analysis and Visualization], [数学数据分析与可视化]),
+      ([MA 253], [Linear Algebra], [线性代数]),
+      (
+        [EA 333],
+        [US-China Encounters and Global Engagement in Archives, 1850-1950],
+        [1850-1950年间美中交往与全球参与的档案研究],
+      ),
     )
     let colby-date = [_#translate-date(8, 2025) -- #translate(en: [Present], zh: [至今])_
     ]
@@ -47,15 +57,28 @@
       en: cventry(
         tl: [*Colby College*, Waterville, ME, USA],
         tr: colby-date,
-      )[#colby-degree (with Minor in Music), GPA N/A (First Semester)
-        #noSimple(simple: [,
-          _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")])[\
-          _Selected Courses_: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")]],
+      )[#colby-degree (with Minor in Music), GPA 3.60/4.00 (First Semester)
+        #noSimple(
+          simple: [,
+            _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
+            \
+            _Courses in Progress_: #in-progress-courses.map(item => item.at(0)).join(", ")
+          ],
+        )[\
+          _Selected Courses_: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
+          \
+          _Courses in Progress_: #in-progress-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
+        ]
+      ],
+
       zh: cventry(
         tl: [科尔比学院，美国，缅因州，沃特维尔],
         tr: colby-date,
-      )[#colby-degree，（副专业：音乐），GPA N/A (第一学期) \
-        _部分选修课程_：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")],
+      )[#colby-degree，（副专业：音乐），GPA 3.60/4.00 (第一学期) \
+        _部分选修课程_：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")
+        \
+        _正在进行的课程_： #in-progress-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")
+      ],
     )
   }
 
@@ -225,6 +248,29 @@
       ],
     )
   }
+
+  let ymca-research = {
+    let ymca-date = [_#translate-date(11, 2025) -- #translate(en: [Present], zh: [至今])_]
+    translate(
+      en: cventry(
+        tl: [*Research Assistant*, _Advisor: Prof. Hong Zhang_, Colby College],
+        tr: ymca-date,
+      )[
+        - Conducting historical research on the role of the YMCA in the development of modern sports and physical education in China.
+        - Collecting and analyzing archival documents, biographical records, and institutional histories related to Chinese sports modernization.
+        - Preparing a research paper under faculty supervision.
+      ],
+      zh: cventry(
+        tl: [*研究助理*，_导师：张虹教授_，科尔比学院],
+        tr: ymca-date,
+      )[
+        - 研究 YMCA 在中国现代体育与体育教育发展中的作用。
+        - 整理与分析历史档案、人物资料和相关机构史料。
+        - 在导师指导下撰写研究论文。
+      ],
+    )
+  }
+
   let presentation = {
     let presentation-date = [_#translate-date(10, 2023)_]
     translate(
@@ -314,16 +360,19 @@
   let misc = {
     translate(
       en: [
-        - Languages: English - proficient (SAT 1450/1600: English 680, Math 770, top 3 percentile among all participants), Chinese - native speaker
+        - Languages: bilingual in English, native in Mandarin Chinese
         - Interests:
+          - Photography (2020–): Curated and exhibited multiple #link("https://sites.google.com/colby.edu/xdai/home")[photo portfolios].
+          - Classical Music (2020-): Have been performing classical piano pieces at different venues (Liszt, Beethoven, Bach, Scriabin, etc.).
           - Varsity Alpine Ski Team (2021-2023): Participated in competitive skiing, contributing to the team's achievements in various championships.
-          - Founder and Keyboard Player, Careless Youth Band (2021-2024): Founded and led the band, organizing rehearsals and performances, and composing original music.
+          - Founder and Keyboard Player, Careless Youth Band (2021-2025): Founded and led the band, organizing rehearsals and performances, and composing original music.
       ],
       zh: [
-        - 语言：English - 精通 (SAT 1450/1600: English 680, Math 770，全部考生中头部3%)，汉语 - 母语水平
+        - 语言：English - 精通或母语水平，汉语 - 母语水平
         - 兴趣爱好：
+          - 摄影 (2020-): 整理了并展览了多个#link("https://sites.google.com/colby.edu/xdai/home")[作品集]。
           - 校队高山滑雪队 (2021-2023)：参与竞技滑雪（小回转，大回转），为团队在各种锦标赛中的获奖做出贡献。
-          - 乐队 Careless Youth 的创始人和键盘手 (2021-2024)：创立并领导乐队，组织排练和演出，并创作原创音乐。
+          - 乐队 Careless Youth 的创始人和键盘手 (2021-2025)：创立并领导乐队，组织排练和演出，并创作原创音乐。
       ],
     )
     // translate(
@@ -367,6 +416,7 @@
 
   noSimple[
     #translate(en: [== Academic Experience], zh: [== 学术经历])
+    #ymca-research
     #presentation
   ]
   translate(en: [== Achievements], zh: [== 成就])

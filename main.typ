@@ -34,20 +34,15 @@
 
     let colby-courses = (
       ([CS 231], [Data Structures and Algorithms], [数据结构和算法]),
-      ([MA 160], [Series and Multivariable Calculus], [级数和多元微积分]),
       ([MA 262], [Vector Calculus], [向量分析]),
     )
 
     let in-progress-courses = (
       ([CS 252], [Mathematical Data Analysis and Visualization], [数学数据分析与可视化]),
       ([MA 253], [Linear Algebra], [线性代数]),
-      (
-        [EA 333],
-        [US-China Encounters and Global Engagement in Archives, 1850-1950],
-        [1850-1950年间美中交往与全球参与的档案研究],
-      ),
     )
-    let colby-date = [_#translate-date(8, 2025) -- #translate(en: [Present], zh: [至今])_
+    let colby-date = [_#translate-date(8, 2025) -- #translate(en: [Present], zh: [至今]) \
+      #translate(en: [Expected Graduation: May 2029], zh: [预计毕业时间: 2029, 5月])_
     ]
     let colby-degree = translate(
       en: [B.A. Candidate in Mathematics and Computer Science],
@@ -57,7 +52,7 @@
       en: cventry(
         tl: [*Colby College*, Waterville, ME, USA],
         tr: colby-date,
-      )[#colby-degree (with Minor in Music), GPA 3.60/4.00 (First Semester)
+      )[#colby-degree (with Minor in Music), GPA #colby-gpa/4.0 (First Semester)
         #noSimple(
           simple: [,
             _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
@@ -82,143 +77,83 @@
     )
   }
 
-  let camden-filmfest = {
-    let camden-date = [_#translate-date(9, 2025)_]
+  let sheehan-photo = {
+    let sheehan-date = [#translate-date(1, 2026) -- #translate(en: [Present], zh: [至今])]
     translate(
       en: cventry(
-        tl: [*Camden Film Festival*, _Volunteer_, Camden, ME, USA],
-        tr: camden-date,
-      )[
-        #noSimple[
-          - Assisted in event setup, ticketing, and guiding guests at the Camden Opera House.
-          - Supported screenings and live events, ensuring smooth operations for attendees and staff.
-          - Gained hands-on experience in arts event management and community engagement.
-        ]
-      ],
+        tl: [*Beowulf Sheehan*, Waterville, ME, USA],
+        tr: sheehan-date,
+        bl: [_Portrait Photography_, Assistant Photographer],
+      )[#noSimple[
+        - Assisted visiting artist Beowulf Sheehan with a portrait project photographing select students and members of the Colby community.
+        - Supported portrait sessions with equipment setup/breakdown, lighting preparation, and on-site assistance during shoots.
+        - Coordinated logistics with sitters and campus offices (availability, scheduling, and communication) to keep sessions running smoothly.
+        - Worked through Colby student employment; tracked hours and followed workflow expectations discussed with the photographer.
+      ]],
       zh: cventry(
-        tl: [*卡姆登歌剧院*，卡姆登电影节志愿者],
-        tr: camden-date,
-      )[
-        #noSimple[
-          - 协助活动布置、票务工作，并为Camden电影节的来宾提供引导。
-          - 支持放映和现场活动，确保观众和工作人员的顺利体验。
-          - 获得了艺术活动管理和社区参与的实践经验。
-        ]
-      ],
+        tl: [*Beowulf Sheehan*，美国，缅因州，沃特维尔],
+        tr: sheehan-date,
+        bl: [肖像摄影，灯光布置，拍摄协调],
+      )[#noSimple[
+        - 协助来访艺术家摄影师 Beowulf Sheehan 开展肖像摄影项目，拍摄对象包括部分学生及学院社区成员。
+        - 负责拍摄现场支持，包括器材搭建与收纳、灯光准备、拍摄过程协助等。
+        - 与被摄者及校内办公室沟通协调（时间确认、拍摄安排与信息对接），保障拍摄流程顺畅。
+        - 通过学生雇佣岗位开展工作；记录工时并遵循摄影师说明的工作规范与流程。
+      ]],
     )
   }
 
-  let fvs-media = {
-    let fvs-date = [_#translate-date(8, 2022) -- #translate-date(5, 2025)_]
+  let camden-filmfest = {
+    let camden-date = [#translate-date(9, 2025)]
     translate(
       en: cventry(
-        tl: [*Fountain Valley School of Colorado*, _Media Team_, Colorado Springs, CO, USA],
-        tr: fvs-date,
+        tl: [*Camden Film Festival*, Camden, ME, USA],
+        tr: camden-date,
+        bl: [_Event Operations_, Guest Services, Ticketing],
       )[#noSimple[
-        - Collaborated with the media team to broadcast, create and edit videos for school events, including sports games and academic competitions.
-        - Assisted in managing the school's Instagram accounts, promoting events and engaging with the community.
+        - Assisted with event setup, check-in, ticketing, and guest guidance at the Camden Opera House.
+        - Supported screenings and live events by coordinating with staff and attendees to ensure smooth operations.
+        - Gained hands-on experience in arts event management and community engagement.
       ]],
       zh: cventry(
-        tl: [*科罗拉多喷泉谷学校*，_媒体团队_，美国，科罗拉多州，科罗拉多泉],
-        tr: fvs-date,
+        tl: [*卡姆登电影节*，美国，缅因州，卡姆登],
+        tr: camden-date,
+        bl: [活动执行，观众引导，票务协助],
       )[#noSimple[
-        - 与媒体团队合作，为学校活动（包括体育比赛和学术竞赛）现场直播、制作和编辑视频。
-        - 协助管理学校的Instagram账户，宣传活动并与社区互动。
+        - 协助活动布置、签到/票务工作，并在 Camden Opera House 为来宾提供引导与支持。
+        - 支持放映与现场活动，与工作人员协作保障观众与团队的顺利体验。
+        - 获得艺术活动执行与社区参与的实践经验。
       ]],
     )
   }
 
   let chinadaily = {
-    let chinadaily-date = [_#translate-date(6, 2025) -- #translate-date(7, 2025)_]
+    let chinadaily-date = [#translate-date(6, 2025) -- #translate-date(7, 2025)]
     translate(
       en: cventry(
-        tl: [*China Daily*, _Features Reporter Intern_, Beijing, China],
+        tl: [*China Daily*, Beijing, China],
         tr: chinadaily-date,
+        bl: [_Cultural Journalism_, Features Reporter, Videographer],
       )[#noSimple[
-        - Engaged in interviews with renowned artists, including Russian theater director Yury Butusov, enriching content quality.
-        - Mastered video editing techniques, producing compelling short videos that enhanced project visibility.
-        - Contributed to high-profile cultural events, demonstrating adaptability and a commitment to excellence in reporting.
+        - Conducted and supported interviews with artists and cultural figures (including Russian theater director Yury Butusov) to develop feature stories.
+        - Reported and produced feature coverage on Beijing East Shore Jazz Club, including interviews, transcript organization, and story development.
+        - Edited short-form videos for cultural coverage, improving clarity, pacing, and audience engagement.
+        - Contributed to coverage of major cultural events, demonstrating adaptability and attention to editorial quality.
       ]],
       zh: cventry(
-        tl: [*中国日报社*，_特写记者实习生_，中国，北京],
+        tl: [*中国日报社*，中国，北京],
         tr: chinadaily-date,
-      )[ #noSimple[
-        - 参与采访知名艺术家，包括俄罗斯戏剧导演尤里·布图索夫，丰富了内容质量。
-        - 掌握视频剪辑技巧，制作了提高项目影响力的短视频。
-        - 参与高规格文化活动报道，展现了适应力与对新闻报道卓越性的追求。
+        bl: [文化报道，人物采访，视频剪辑],
+      )[#noSimple[
+        - 参与人物采访与资料整理（包括俄罗斯戏剧导演尤里·布图索夫、北京东岸爵士俱乐部专题报道），为特写报道提供内容支持。
+        - 负责文化类短视频剪辑与后期处理，提升叙事节奏与传播效果。
+        - 参与高规格文化活动报道，展现适应力与对内容质量的把控。
       ]],
     )
   }
-
-  let dagro = {
-    let dagro-date = [_#translate-date(6, 2022) -- #translate-date(8, 2022), #translate-date(6, 2023) -- #translate-date(8, 2023)_]
-    translate(
-      en: cventry(
-        tl: [*Dagro Chemical (Chengwu) Co., Ltd.*, _Chemical Lab Intern_, Chengwu, Shandong, China],
-        tr: dagro-date,
-      )[#noSimple[
-        - Assisted in the chemical laboratory, analyzing concentrations of samples and ensuring process quality across multiple stages of production for agricultural product intermediates.
-        - Supported inventory management, gaining knowledge of logistics and storage systems to maintain necessary materials for production.
-        - Learned the specific functions of factory equipment, sewage treatment processes, and manufacturing procedures in workshops.
-        - Observed and studied colleagues’ research and development techniques to improve production procedures.
-      ]],
-      zh: cventry(
-        tl: [*达瑞化工（成武）有限公司*，_化学实验室实习生_，中国，山东，成武],
-        tr: dagro-date,
-      )[#noSimple[
-        - 在化学实验室协助工作，分析样品浓度，确保农业产品中间体生产的多个阶段的工艺质量。
-        - 支持库存管理，学习物流和存储系统知识，以维持生产所需的材料。
-        - 学习工厂设备的具体功能、污水处理过程和车间的制造程序。
-        - 观察和学习同事的研究和开发技术，以改进生产程序。
-      ]],
-    )
-  }
-
-  // let kray = {
-  //   let kray-date = [_#translate-date(6, 2024) -- #translate-date(8, 2024)_]
-  //   translate(
-  //     en: cventry(
-  //       tl: [*Kray Builds Design & Construction, LLC*, _Construction Assistant_, ],
-  //       tr: kray-date,
-  //     )[#noSimple[
-  //       - Excavated a pit to install a rod for hanging lights and electrical outlets, ensuring proper measurements and stability.
-  //       - Collaborated with other workers and the project leader to plan and execute the installation, following county safety standards and functional requirements.
-  //     ]],
-  //     zh: cventry(
-  //       tl: [*克雷设计与施工有限责任公司*，建筑助理],
-  //       tr: kray-date,
-  //     )[#noSimple[
-  //       - 挖掘坑洞以安装悬挂灯具和电源插座的杆子，确保测量和稳定性。
-  //       - 与其他工人和项目负责人合作，计划和执行安装，遵循县安全标准和功能要求。
-  //     ]],
-  //   )
-  // }
 
   let achievements = {
-    let apscholar-date = [_#translate-date(4, 2023) -- #translate-date(5, 2025)_]
-    let deanslist-date = [_#translate-date(8, 2021) -- #translate-date(5, 2025)_]
     let usaco-date = [_#translate-date(12, 2023)_]
-    let yale-date = [_#translate-date(7, 2023)_]
-    translate(
-      en: cventry(
-        tl: [*Dean's List*],
-        tr: deanslist-date,
-      )[],
-      zh: cventry(
-        tl: [*院长嘉奖名单*],
-        tr: deanslist-date,
-      )[],
-    )
-    translate(
-      en: cventry(
-        tl: [*AP Scholar Award*],
-        tr: apscholar-date,
-      )[],
-      zh: cventry(
-        tl: [*AP 学者奖*],
-        tr: apscholar-date,
-      )[],
-    )
     translate(
       en: cventry(
         tl: [*USA Computing Olympiad Platinum Division Qualifier*],
@@ -228,24 +163,6 @@
         tl: [*美国计算机奥林匹克竞赛 (USACO) 铂金级资格赛晋级者*],
         tr: usaco-date,
       )[],
-    )
-    translate(
-      en: cventry(
-        tl: [*Scholar, Yale Young Global Scholars*],
-        tr: yale-date,
-      )[
-        - Attended Yale Young Global Scholars in the Literature, Philosophy, & Culture (LPC) session.
-        - Engaged in two weeks of academic lectures and participated in various seminars on classical philosophy, minority culture, global architectural styles and music.
-        - Collaborated with peers to present a group research project, using spoken-word poetry as a creative exploration of literary techniques and romance in literature.
-      ],
-      zh: cventry(
-        tl: [*耶鲁大学青年全球学者项目学者*],
-        tr: yale-date,
-      )[
-        - 参加了耶鲁大学青年全球学者项目的文学、哲学与文化（LPC）项目。
-        - 参与了为期两周的学术讲座，并参加了关于古典哲学，少数族裔文化，世界建筑风格和音乐的各种研讨会。
-        - 与同龄人合作，展示了一项小组研究项目，使用口语诗歌作为对文学技巧和文学中的浪漫的创造性探索。
-      ],
     )
   }
 
@@ -271,38 +188,53 @@
     )
   }
 
-  let presentation = {
-    let presentation-date = [_#translate-date(10, 2023)_]
+
+  let lui-project = {
+    let lui-date = [_#translate-date(8, 2021) -- #translate(en: [Present], zh: [至今])_]
+    let ghLink = githublink("LLLgoyour/LUI")
     translate(
       en: cventry(
-        tl: [*Presenter, Unity Day Workshop: Diversity in Photography*],
-        tr: presentation-date,
+        tl: [*LUI*, UI Framework Based on Microsoft Fluent UI],
+        tr: lui-date,
       )[
-        - Researched, explored, and presented various themes, styles, and cultural movements in photography history for a Unity Day workshop to students, a school event celebrating diverse cultures, focusing on photographers from various cultural backgrounds.
+        - Designed and developed an open-source UI component library using Vue and TypeScript, inspired by Microsoft Fluent UI design principles.
+        - Implemented modular, reusable components with consistent theming, layout systems, and accessibility considerations.
+        - Structured the project with clear documentation, component demos, and version control to support maintainability and developer usability.
+        - Published and maintained the framework on GitHub (#ghLink) for public use and collaboration.
       ],
       zh: cventry(
-        tl: [*文化日工作坊：摄影中的多样性*，演讲者],
-        tr: presentation-date,
+        tl: [*LUI*, 基于 Microsoft Fluent UI 的前端组件库],
+        tr: lui-date,
       )[
-        - 研究、探索并展示了摄影历史中的各种主题、风格和文化运动，在文化日为学生们进行演讲，这是一个庆祝多元文化的学校活动，重点介绍了来自不同文化背景的摄影师。
+        - 使用 Vue 与 TypeScript 设计并开发了一个开源 UI 组件库，参考 Microsoft Fluent UI 的设计理念。
+        - 实现了模块化、可复用的组件体系，支持统一主题、布局系统与基础可访问性设计。
+        - 通过清晰的文档、组件示例与版本管理提升项目的可维护性与开发者友好度。
+        - 在 GitHub 上发布并维护该框架 (#ghLink)，支持公开使用与协作开发。
       ],
     )
   }
-  let handout = {
-    let handout-date = [_#translate-date(7, 2021) -- #translate-date(12, 2022)_]
-    let ghLink = githublink("LLLgoyour/Handout")
+
+  let cs231-project = {
+    let cs231-date = [_#translate-date(9, 2025) -- #translate-date(12, 2025)_]
+    let ghLink = githublink("LLLgoyour/cs231")
     translate(
       en: cventry(
-        tl: [*Physics Handout Translator*],
-        tr: handout-date,
+        tl: [*Data Structures & Algorithms Projects*],
+        tr: cs231-date,
       )[
-        - Collaborated with friends to assist Professor Wang Yi at HKUST in translating physics handouts (#ghLink) from English to Chinese covering topics such as relativity, quantum theory, particle-wave duality, and statistical physics. Gained experience using LaTeX and Overleaf to collaborate on the translation and formatting of scientific material.
+        - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
+        - Developed search algorithms including BFS, DFS, and A\* for maze-solving and pathfinding problems.
+        - Built and tested algorithmic game strategies and simulations, focusing on efficiency, correctness, and performance analysis.
+        - Organized coursework, labs, and project code in a structured GitHub repository (#ghLink) with documentation and version control.
       ],
       zh: cventry(
-        tl: [*物理讲义翻译员*],
-        tr: handout-date,
+        tl: [*CS 231：数据结构与算法项目*],
+        tr: cs231-date,
       )[
-        - 与朋友合作，协助香港科技大学的王一教授将物理讲义 (#ghLink) 从英语翻译成中文，内容涵盖相对论、量子理论、波粒二象性和统计物理等主题。获得了使用 LaTeX 和 Overleaf 协作翻译和格式化科学材料的经验。
+        - 使用 Java 完成数据结构与算法课程的一系列编程项目，实现了链表、栈、队列、二叉搜索树和哈希表等核心数据结构。
+        - 编写并应用 BFS、DFS 和 A\* 搜索算法解决迷宫寻路与路径规划问题。
+        - 设计并测试算法博弈策略与模拟程序，注重效率、正确性和性能分析。
+        - 将课程作业、实验和项目代码系统整理至 GitHub 仓库 (#ghLink)，并进行文档管理与版本控制。
       ],
     )
   }
@@ -318,8 +250,8 @@
       )
     }
     let progLang = {
-      let very = "Java, Python, LaTeX"
-      let somehow = "C, C++, Mathematica, Go, Pascal"
+      let very = "Java, LaTeX"
+      let somehow = "Python, C++, Mathematica, Go, HTML, JavaScript"
       translate(
         en: [
           - Programming Languages: multilingual (not limited to any specific language), especially experienced in #very, comfortable with #somehow (in random order).
@@ -338,15 +270,16 @@
         zh: [- Java/Python：*6 年开发经验*，熟悉 #before-swing 以及在算法竞赛中会应用到的初级到高级算法与数论和图论。],
       )
     }
+
     let webDev = translate(
       en: [
-        - Web Development: *3 years of experience*, familiar with mainstream frameworks and languages including Vue.JS.
+        - Web Development: *3 years of experience*, familiar with mainstream languages including Vue.JS.
       ],
       zh: [- 网页开发：*3 年开发经验*，熟悉主流框架与语言如Vue.JS。],
     )
     let office-tools = translate(
       en: [
-        - Office Tools: *3 years of experience*, familiar with Microsoft Office, Google Docs, and other office tools.
+        - Office Tools: *6 years of experience*, familiar with Microsoft Office, Google Docs, and other office tools.
       ],
       zh: [- 办公软件：*8 年使用经验*，熟悉 Microsoft Office、Google Docs 等办公软件。],
     )
@@ -363,7 +296,7 @@
         - Languages: bilingual in English, native in Mandarin Chinese
         - Interests:
           - Photography (2020–): Curated and exhibited multiple #link("https://sites.google.com/colby.edu/xdai/home")[photo portfolios].
-          - Classical Music (2020-): Have been performing classical piano pieces at different venues (Liszt, Beethoven, Bach, Scriabin, etc.).
+          - Piano Performance (2017–): Performed in recitals and at various venues, featuring works by Liszt, Beethoven, Bach, Scriabin, and others.
           - Varsity Alpine Ski Team (2021-2023): Participated in competitive skiing, contributing to the team's achievements in various championships.
           - Founder and Keyboard Player, Careless Youth Band (2021-2025): Founded and led the band, organizing rehearsals and performances, and composing original music.
       ],
@@ -371,6 +304,7 @@
         - 语言：English - 精通或母语水平，汉语 - 母语水平
         - 兴趣爱好：
           - 摄影 (2020-): 整理了并展览了多个#link("https://sites.google.com/colby.edu/xdai/home")[作品集]。
+          - 钢琴演奏 (2017-): 曾举办钢琴独奏音乐会，并在不同场合演奏李斯特、贝多芬、巴赫、斯克里亚宾等作曲家的作品。
           - 校队高山滑雪队 (2021-2023)：参与竞技滑雪（小回转，大回转），为团队在各种锦标赛中的获奖做出贡献。
           - 乐队 Careless Youth 的创始人和键盘手 (2021-2025)：创立并领导乐队，组织排练和演出，并创作原创音乐。
       ],
@@ -401,23 +335,19 @@
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
+  sheehan-photo
   camden-filmfest
   chinadaily
-  fvs-media
-  dagro
-  // kray
 
   noSimple[
     #translate(en: [== Related Projects], zh: [== 项目经历])
-    //
-    // cs231
-    #handout
+    #cs231-project
+    #lui-project
   ]
 
   noSimple[
     #translate(en: [== Academic Experience], zh: [== 学术经历])
     #ymca-research
-    #presentation
   ]
   translate(en: [== Achievements], zh: [== 成就])
   achievements
@@ -428,11 +358,11 @@
   misc
 
   // https://github.com/typst/typst/issues/1462
-  //   {
-  //     set text(size: 0pt)
-  //     [@SIT]
-  //     noSimple[@ExactlyApplied, @Guest, @ExtTyApp, @FordHelix]
-  //   }
-  //   translate(en: [== Papers], zh: [== 论文])
-  //   bibliography("pub.bib", title: none)
+  {
+    set text(size: 0pt)
+    [@YMCA]
+    noSimple[]
+  }
+  translate(en: [== Publications & Works in Progress], zh: [== 准备发布的论文])
+  bibliography("pub.bib", title: none)
 }

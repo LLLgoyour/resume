@@ -30,7 +30,7 @@
 
   let edu = {
     translate(en: [== Education], zh: [== 教育经历])
-    let colby-gpa = 3.6
+    let colby-gpa = 3.7
 
     let colby-courses = (
       ([CS 231], [Data Structures and Algorithms], [数据结构和算法]),
@@ -69,7 +69,7 @@
       zh: cventry(
         tl: [科尔比学院，美国，缅因州，沃特维尔],
         tr: colby-date,
-      )[#colby-degree，（副专业：音乐），GPA 3.60/4.00 (第一学期) \
+      )[#colby-degree，（副专业：音乐），GPA #colby-gpa (第一学期) \
         _部分选修课程_：#colby-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")
         \
         _正在进行的课程_： #in-progress-courses.map(item => item.at(0) + " " + item.at(2)).join(", ")

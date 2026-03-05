@@ -166,6 +166,31 @@
     )
   }
 
+  let ymca-exhibit = {
+    let exhibit-date = [#translate-date(1, 2026) -- #translate(en: [Present], zh: [至今])]
+    let site = link("https://eas.lllgoyour.com")[eas.lllgoyour.com]
+    translate(
+      en: cventry(
+        tl: [*Digital Humanities Exhibit: YMCA and Modern Physical Education in China*],
+        tr: exhibit-date,
+        bl: [_Digital Humanities_, Archival Research, Web Publishing],
+      )[#noSimple[
+        - Built and maintained an online archival exhibit (#site) presenting research on YMCA networks and the development of modern physical education in China.
+        - Organized primary sources and biographical records into a structured public-facing archive, supporting historical interpretation and ongoing writing.
+        - Integrated research workflow with web publication to make materials accessible for academic review and future expansion.
+      ]],
+      zh: cventry(
+        tl: [*数字人文档案展：YMCA 与中国现代体育教育*],
+        tr: exhibit-date,
+        bl: [数字人文，档案研究，网站发布],
+      )[#noSimple[
+        - 搭建并维护线上数字人文档案展（#site），呈现关于 YMCA 网络与中国现代体育教育形成的研究成果。
+        - 整理一手史料与人物资料，构建结构化的公共档案展示，用于支撑历史论证与后续写作。
+        - 将研究流程与网页发布结合，便于学术展示、反馈与持续扩展。
+      ]],
+    )
+  }
+
   let ymca-research = {
     let ymca-date = [_#translate-date(11, 2025) -- #translate(en: [Present], zh: [至今])_]
     translate(
@@ -194,23 +219,24 @@
     let ghLink = githublink("LLLgoyour/LUI")
     translate(
       en: cventry(
-        tl: [*LUI*, UI Framework Based on Microsoft Fluent UI],
+        tl: [*LUI*],
+        bl: [_UI Framework_, Based on Microsoft Fluent UI],
         tr: lui-date,
-      )[
+      )[#noSimple[
         - Designed and developed an open-source UI component library using Vue and TypeScript, inspired by Microsoft Fluent UI design principles.
         - Implemented modular, reusable components with consistent theming, layout systems, and accessibility considerations.
         - Structured the project with clear documentation, component demos, and version control to support maintainability and developer usability.
         - Published and maintained the framework on GitHub (#ghLink) for public use and collaboration.
-      ],
+      ]],
       zh: cventry(
         tl: [*LUI*, 基于 Microsoft Fluent UI 的前端组件库],
         tr: lui-date,
-      )[
+      )[#noSimple[
         - 使用 Vue 与 TypeScript 设计并开发了一个开源 UI 组件库，参考 Microsoft Fluent UI 的设计理念。
         - 实现了模块化、可复用的组件体系，支持统一主题、布局系统与基础可访问性设计。
         - 通过清晰的文档、组件示例与版本管理提升项目的可维护性与开发者友好度。
         - 在 GitHub 上发布并维护该框架 (#ghLink)，支持公开使用与协作开发。
-      ],
+      ]],
     )
   }
 
@@ -221,21 +247,21 @@
       en: cventry(
         tl: [*Data Structures & Algorithms Projects*],
         tr: cs231-date,
-      )[
+      )[#noSimple[
         - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
         - Developed search algorithms including BFS, DFS, and A\* for maze-solving and pathfinding problems.
         - Built and tested algorithmic game strategies and simulations, focusing on efficiency, correctness, and performance analysis.
         - Organized coursework, labs, and project code in a structured GitHub repository (#ghLink) with documentation and version control.
-      ],
+      ]],
       zh: cventry(
         tl: [*CS 231：数据结构与算法项目*],
         tr: cs231-date,
-      )[
+      )[#noSimple[
         - 使用 Java 完成数据结构与算法课程的一系列编程项目，实现了链表、栈、队列、二叉搜索树和哈希表等核心数据结构。
         - 编写并应用 BFS、DFS 和 A\* 搜索算法解决迷宫寻路与路径规划问题。
         - 设计并测试算法博弈策略与模拟程序，注重效率、正确性和性能分析。
         - 将课程作业、实验和项目代码系统整理至 GitHub 仓库 (#ghLink)，并进行文档管理与版本控制。
-      ],
+      ]],
     )
   }
 
@@ -339,11 +365,12 @@
   camden-filmfest
   chinadaily
 
-  noSimple[
-    #translate(en: [== Related Projects], zh: [== 项目经历])
-    #cs231-project
-    #lui-project
-  ]
+  // noSimple[
+  translate(en: [== Related Projects], zh: [== 项目经历])
+  ymca-exhibit
+  noSimple[cs231-project]
+  lui-project
+  // ]
 
   noSimple[
     #translate(en: [== Academic Experience], zh: [== 学术经历])
@@ -363,6 +390,6 @@
     [@YMCA]
     noSimple[]
   }
-  translate(en: [== Publications & Works in Progress], zh: [== 准备发布的论文])
+  translate(en: [== Works in Progress], zh: [== 准备发布的论文])
   bibliography("pub.bib", title: none)
 }

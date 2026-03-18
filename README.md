@@ -11,8 +11,9 @@ Build on Linux: you're on your own. PR welcome.
 
 # Download/下载
 
-+ [English one-page version (PDF)](./resume.pdf)
-+ [English complete version (PDF)](./resume-elab.pdf)
-+ [中文版 (PDF)](./resume-cn.pdf)
+- [English one-page version (PDF)](./resume.pdf)
+- [English complete version (PDF)](./resume-elab.pdf)
+- [English job application version (PDF)](./resume-job.pdf)
+- [中文版 (PDF)](./resume-cn.pdf)
 
 中文简历不提供单页版本。

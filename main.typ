@@ -3,7 +3,9 @@
 #let Chinese = 0
 #let EnglishFull = 1
 #let Simplified = 2
+#let JobApplication = 3
 #let runReader(mode) = {
+  let is-job = mode == JobApplication
   let translate(zh: [], en: []) = {
     if mode == Chinese {
       zh
@@ -14,6 +16,20 @@
   let noSimple(simple: [], content) = {
     if mode == Simplified {
       simple
+    } else {
+      content
+    }
+  }
+  let onlyJob(content) = {
+    if is-job {
+      content
+    } else {
+      []
+    }
+  }
+  let noJob(content) = {
+    if is-job {
+      []
     } else {
       content
     }
@@ -48,22 +64,34 @@
       en: [B.A. Candidate in Mathematics and Computer Science],
       zh: [数学与计算机专业文学士],
     )
+    let colby-focus-courses = (
+      [CS 231 Data Structures and Algorithms],
+      [CS 252 Mathematical Data Analysis and Visualization],
+      [MA 253 Linear Algebra],
+    )
     translate(
       en: cventry(
         tl: [*Colby College*, Waterville, ME, USA],
         tr: colby-date,
-      )[#colby-degree (with Minor in Music), GPA #colby-gpa/4.0 (First Semester)
-        #noSimple(
-          simple: [, \
-            _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
-            \
-            _Courses in Progress_: #in-progress-courses.map(item => item.at(0)).join(", ")
-          ],
-        )[\
-          _Selected Courses_: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
-          \
-          _Courses in Progress_: #in-progress-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
-        ]
+      )[#if is-job {
+          [#colby-degree, GPA #colby-gpa/4.0 (First Semester) \
+            _Relevant Coursework_: #colby-focus-courses.join(", ")
+          ]
+        } else {
+          [#colby-degree (with Minor in Music), GPA #colby-gpa/4.0 (First Semester)
+            #noSimple(
+              simple: [, \
+                _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
+                \
+                _Courses in Progress_: #in-progress-courses.map(item => item.at(0)).join(", ")
+              ],
+            )[\
+              _Selected Courses_: #colby-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
+              \
+              _Courses in Progress_: #in-progress-courses.map(item => item.at(0) + " " + item.at(1)).join(", ")
+            ]
+          ]
+        }
       ],
 
       zh: cventry(
@@ -134,12 +162,21 @@
         tl: [*China Daily*, Beijing, China],
         tr: chinadaily-date,
         bl: [_Cultural Journalism_, Features Reporter, Videographer],
-      )[#noSimple[
-        - Conducted and supported interviews with artists and cultural figures (including Russian theater director Yury Butusov) to develop feature stories.
-        - Reported and produced feature coverage on Beijing East Shore Jazz Club, including interviews, transcript organization, and story development.
-        - Edited short-form videos for cultural coverage, improving clarity, pacing, and audience engagement.
-        - Contributed to coverage of major cultural events, demonstrating adaptability and attention to editorial quality.
-      ]],
+      )[#if is-job {
+          [
+            - Produced interview-driven cultural features, including source preparation, transcript synthesis, and narrative drafting under editorial deadlines.
+            - Reported on live events and developed publishable stories from raw notes, recordings, and stakeholder interviews.
+            - Edited short-form video coverage and iterated on structure and clarity based on editorial feedback.
+          ]
+        } else {
+          noSimple[
+            - Conducted and supported interviews with artists and cultural figures (including Russian theater director Yury Butusov) to develop feature stories.
+            - Reported and produced feature coverage on Beijing East Shore Jazz Club, including interviews, transcript organization, and story development.
+            - Edited short-form videos for cultural coverage, improving clarity, pacing, and audience engagement.
+            - Contributed to coverage of major cultural events, demonstrating adaptability and attention to editorial quality.
+          ]
+        }
+      ],
       zh: cventry(
         tl: [*中国日报社*，中国，北京],
         tr: chinadaily-date,
@@ -174,11 +211,20 @@
         tl: [*Digital Humanities Exhibit: YMCA and Modern Physical Education in China*],
         tr: exhibit-date,
         bl: [_Digital Humanities_, Archival Research, Web Publishing],
-      )[#noSimple[
-        - Built and maintained an online archival exhibit (#site) presenting research on YMCA networks and the development of modern physical education in China.
-        - Organized primary sources and biographical records into a structured public-facing archive, supporting historical interpretation and ongoing writing.
-        - Integrated research workflow with web publication to make materials accessible for academic review and future expansion.
-      ]],
+      )[#if is-job {
+          [
+            - Built and maintained a public web exhibit (#site), converting archival research outputs into a structured, browsable digital resource.
+            - Modeled primary-source metadata and biographical records into a reusable content structure for iterative updates.
+            - Integrated research and publishing workflows to support review cycles, revisions, and ongoing content expansion.
+          ]
+        } else {
+          noSimple[
+            - Built and maintained an online archival exhibit (#site) presenting research on YMCA networks and the development of modern physical education in China.
+            - Organized primary sources and biographical records into a structured public-facing archive, supporting historical interpretation and ongoing writing.
+            - Integrated research workflow with web publication to make materials accessible for academic review and future expansion.
+          ]
+        }
+      ],
       zh: cventry(
         tl: [*数字人文档案展：YMCA 与中国现代体育教育*],
         tr: exhibit-date,
@@ -222,12 +268,21 @@
         tl: [*LUI*],
         bl: [_UI Framework_, Based on Microsoft Fluent UI],
         tr: lui-date,
-      )[#noSimple[
-        - Designed and developed an open-source UI component library using Vue and TypeScript, inspired by Microsoft Fluent UI design principles.
-        - Implemented modular, reusable components with consistent theming, layout systems, and accessibility considerations.
-        - Structured the project with clear documentation, component demos, and version control to support maintainability and developer usability.
-        - Published and maintained the framework on GitHub (#ghLink) for public use and collaboration.
-      ]],
+      )[#if is-job {
+          [
+            - Designed and built an open-source UI framework using Vue and TypeScript, with reusable component patterns and shared styling primitives.
+            - Implemented consistent theming, composable layout abstractions, and accessibility-aware defaults to improve integration quality.
+            - Maintained documentation and demos in GitHub (#ghLink) to support contributor onboarding and component verification.
+          ]
+        } else {
+          noSimple[
+            - Designed and developed an open-source UI component library using Vue and TypeScript, inspired by Microsoft Fluent UI design principles.
+            - Implemented modular, reusable components with consistent theming, layout systems, and accessibility considerations.
+            - Structured the project with clear documentation, component demos, and version control to support maintainability and developer usability.
+            - Published and maintained the framework on GitHub (#ghLink) for public use and collaboration.
+          ]
+        }
+      ],
       zh: cventry(
         tl: [*LUI*, 基于 Microsoft Fluent UI 的前端组件库],
         tr: lui-date,
@@ -247,12 +302,22 @@
       en: cventry(
         tl: [*CS231 Data Structures & Algorithms Projects*],
         tr: cs231-date,
-      )[#noSimple[
-        - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
-        - Developed search algorithms including BFS, DFS, and A\* for maze-solving and pathfinding problems.
-        - Built and tested algorithmic game strategies and simulations, focusing on efficiency, correctness, and performance analysis.
-        - Organized coursework, labs, and project code in a structured GitHub repository (#ghLink) with documentation and version control.
-      ]],
+      )[#if is-job {
+          [
+            - Implemented core data structures in Java, including linked lists, stacks, queues, binary search trees, and hash maps.
+            - Built graph-search solutions using BFS, DFS, and A\* for pathfinding and maze-solving tasks.
+            - Evaluated correctness and runtime behavior through debugging-driven iterations, algorithm analysis, and project test cases.
+            - Maintained coursework and implementations in GitHub (#ghLink) with clear structure and documentation.
+          ]
+        } else {
+          noSimple[
+            - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
+            - Developed search algorithms including BFS, DFS, and A\* for maze-solving and pathfinding problems.
+            - Built and tested algorithmic game strategies and simulations, focusing on efficiency, correctness, and performance analysis.
+            - Organized coursework, labs, and project code in a structured GitHub repository (#ghLink) with documentation and version control.
+          ]
+        }
+      ],
       zh: cventry(
         tl: [*CS 231：数据结构与算法项目*],
         tr: cs231-date,
@@ -316,6 +381,32 @@
     office-tools
   }
 
+  let skills-job = {
+    translate(
+      en: [
+        - Languages: Java, Python, TypeScript, JavaScript, C++, Go, HTML/CSS
+        - Frameworks and Tools: Vue.js, Git, GitHub, Jupyter, NumPy, LaTeX/Typst
+        - Relevant Concepts: data structures, graph search (BFS/DFS/A\*), debugging, complexity analysis, technical writing
+      ],
+      zh: [
+        - 编程语言：Java、Python、TypeScript、JavaScript、C++、Go、HTML/CSS
+        - 框架与工具：Vue.js、Git、GitHub、Jupyter、NumPy、LaTeX/Typst
+        - 相关能力：数据结构、图搜索（BFS/DFS/A\*）、调试、复杂度分析、技术写作
+      ],
+    )
+  }
+
+  let additional-job = {
+    translate(
+      en: [
+        - Languages: bilingual in English and Mandarin Chinese
+      ],
+      zh: [
+        - 语言：English 与 Mandarin Chinese 双语
+      ],
+    )
+  }
+
   let misc = {
     translate(
       en: [
@@ -360,36 +451,56 @@
 
   edu
 
-  translate(en: [== Work Experience], zh: [== 工作经历])
-  sheehan-photo
-  camden-filmfest
-  chinadaily
+  if is-job {
+    translate(en: [== Technical Projects], zh: [== 技术项目])
+    cs231-project
+    lui-project
+    ymca-exhibit
 
-  // noSimple[
-  translate(en: [== Related Projects], zh: [== 项目经历])
-  ymca-exhibit
-  cs231-project
-  lui-project
-  // ]
+    translate(en: [== Selected Achievement], zh: [== 代表性成就])
+    achievements
 
-  noSimple[
-    #translate(en: [== Academic Experience], zh: [== 学术经历])
-    #ymca-research
-  ]
-  translate(en: [== Achievements], zh: [== 成就])
-  achievements
-  translate(en: [== Skills], zh: [== 技能])
-  skills
+    translate(en: [== Research and Communication], zh: [== 研究与沟通])
+    ymca-research
+    chinadaily
 
-  translate(en: [== Misc], zh: [== 其它])
-  misc
+    translate(en: [== Skills], zh: [== 技能])
+    skills-job
 
-  // https://github.com/typst/typst/issues/1462
-  {
+    translate(en: [== Additional], zh: [== 其它])
+    additional-job
+  } else {
+    translate(en: [== Work Experience], zh: [== 工作经历])
+    sheehan-photo
+    camden-filmfest
+    chinadaily
+
+    translate(en: [== Related Projects], zh: [== 项目经历])
+    ymca-exhibit
+    cs231-project
+    lui-project
+
+    noSimple[
+      #translate(en: [== Academic Experience], zh: [== 学术经历])
+      #ymca-research
+    ]
+    translate(en: [== Achievements], zh: [== 成就])
+    achievements
+    translate(en: [== Skills], zh: [== 技能])
+    skills
+
+    translate(en: [== Misc], zh: [== 其它])
+    misc
+  }
+
+  noJob[
+    // https://github.com/typst/typst/issues/1462
+    {
     set text(size: 0pt)
     [@YMCA]
     noSimple[]
-  }
-  translate(en: [== Works in Progress], zh: [== 准备发布的论文])
-  bibliography("pub.bib", title: none)
+    }
+    #translate(en: [== Works in Progress], zh: [== 准备发布的论文])
+    #bibliography("pub.bib", title: none)
+  ]
 }

@@ -245,7 +245,7 @@
     let ghLink = githublink("LLLgoyour/cs231")
     translate(
       en: cventry(
-        tl: [*Data Structures & Algorithms Projects*],
+        tl: [*CS231 Data Structures & Algorithms Projects*],
         tr: cs231-date,
       )[#noSimple[
         - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
@@ -368,7 +368,7 @@
   // noSimple[
   translate(en: [== Related Projects], zh: [== 项目经历])
   ymca-exhibit
-  noSimple[cs231-project]
+  cs231-project
   lui-project
   // ]
 

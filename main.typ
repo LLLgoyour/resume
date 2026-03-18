@@ -54,7 +54,7 @@
         tr: colby-date,
       )[#colby-degree (with Minor in Music), GPA #colby-gpa/4.0 (First Semester)
         #noSimple(
-          simple: [,
+          simple: [, \
             _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
             \
             _Courses in Progress_: #in-progress-courses.map(item => item.at(0)).join(", ")

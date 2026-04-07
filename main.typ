@@ -74,11 +74,11 @@
         tl: [*Colby College*, Waterville, ME, USA],
         tr: colby-date,
       )[#if is-job {
-          [#colby-degree, GPA #colby-gpa/4.0 (First Semester) \
+          [#colby-degree, GPA #colby-gpa/4.0 \
             _Relevant Coursework_: #colby-focus-courses.join(", ")
           ]
         } else {
-          [#colby-degree (with Minor in Music), GPA #colby-gpa/4.0 (First Semester)
+          [#colby-degree (with Minor in Music), GPA #colby-gpa/4.0
             #noSimple(
               simple: [, \
                 _Selected Courses_: #colby-courses.map(item => item.at(0)).join(", ")
@@ -206,6 +206,7 @@
   let ymca-exhibit = {
     let exhibit-date = [#translate-date(1, 2026) -- #translate(en: [Present], zh: [至今])]
     let site = link("https://eas.lllgoyour.com")[eas.lllgoyour.com]
+    let ghLink = githublink("LLLgoyour/across-the-pacific-gymnasium")
     translate(
       en: cventry(
         tl: [*Digital Humanities Exhibit: YMCA and Modern Physical Education in China*],
@@ -213,9 +214,9 @@
         bl: [_Digital Humanities_, Archival Research, Web Publishing],
       )[#if is-job {
           [
-            - Built and maintained a public web exhibit (#site), converting archival research outputs into a structured, browsable digital resource.
-            - Modeled primary-source metadata and biographical records into a reusable content structure for iterative updates.
-            - Integrated research and publishing workflows to support review cycles, revisions, and ongoing content expansion.
+            - Engineered and maintained a production digital exhibit (#site) with Eleventy/Nunjucks templates and reusable page components for timelines, locations, key figures, and source records.
+            - Built a data pipeline that compiles structured CSV source/link tables into JSON assets via Node.js scripts, with header checks and evidence-status validation to keep updates auditable.
+            - Maintained code and data versioning in GitHub (#ghLink).
           ]
         } else {
           noSimple[
@@ -230,9 +231,10 @@
         tr: exhibit-date,
         bl: [数字人文，档案研究，网站发布],
       )[#noSimple[
-        - 搭建并维护线上数字人文档案展（#site），呈现关于 YMCA 网络与中国现代体育教育形成的研究成果。
-        - 整理一手史料与人物资料，构建结构化的公共档案展示，用于支撑历史论证与后续写作。
-        - 将研究流程与网页发布结合，便于学术展示、反馈与持续扩展。
+        - 搭建并维护线上数字人文档案展（#site），基于 Eleventy/Nunjucks 组织时间线、地点、人物与史料页面的可复用模板。
+        - 设计并实现 CSV 到 JSON 的数据构建流程（Node.js 脚本），对字段与证据状态进行校验，保证数据更新可追踪、可审阅。
+        - 建立“论点-证据”关联模型（verified/partial/unverified），提升史料引用透明度与研究可靠性。
+        - 支持站内检索与持续发布流程，代码与数据统一维护于 GitHub (#ghLink)。
       ]],
     )
   }
@@ -266,17 +268,17 @@
     translate(
       en: cventry(
         tl: [*LUI*],
-        bl: [_UI Framework_, Based on Microsoft Fluent UI],
+        bl: [_Vue UI Framework_],
         tr: lui-date,
       )[#if is-job {
           [
-            - Designed and built an open-source UI framework using Vue and TypeScript, with reusable component patterns and shared styling primitives.
+            - Designed and built an open-source UI framework using Vue.js and TypeScript, with reusable component patterns and shared styling primitives.
             - Implemented consistent theming, composable layout abstractions, and accessibility-aware defaults to improve integration quality.
             - Maintained documentation and demos in GitHub (#ghLink) to support contributor onboarding and component verification.
           ]
         } else {
           noSimple[
-            - Designed and developed an open-source UI component library using Vue and TypeScript, inspired by Microsoft Fluent UI design principles.
+            - Designed and developed an open-source UI component library using .JS and TypeScript, inspired by Microsoft Fluent UI design principles.
             - Implemented modular, reusable components with consistent theming, layout systems, and accessibility considerations.
             - Structured the project with clear documentation, component demos, and version control to support maintainability and developer usability.
             - Published and maintained the framework on GitHub (#ghLink) for public use and collaboration.
@@ -287,7 +289,7 @@
         tl: [*LUI*, 基于 Microsoft Fluent UI 的前端组件库],
         tr: lui-date,
       )[#noSimple[
-        - 使用 Vue 与 TypeScript 设计并开发了一个开源 UI 组件库，参考 Microsoft Fluent UI 的设计理念。
+        - 使用 Vue.js 与 TypeScript 设计并开发了一个开源 UI 组件库，参考 Microsoft Fluent UI 的设计理念。
         - 实现了模块化、可复用的组件体系，支持统一主题、布局系统与基础可访问性设计。
         - 通过清晰的文档、组件示例与版本管理提升项目的可维护性与开发者友好度。
         - 在 GitHub 上发布并维护该框架 (#ghLink)，支持公开使用与协作开发。
@@ -306,15 +308,14 @@
           [
             - Implemented core data structures in Java, including linked lists, stacks, queues, binary search trees, and hash maps.
             - Built graph-search solutions using BFS, DFS, and A\* for pathfinding and maze-solving tasks.
-            - Evaluated correctness and runtime behavior through debugging-driven iterations, algorithm analysis, and project test cases.
-            - Maintained coursework and implementations in GitHub (#ghLink) with clear structure and documentation.
+            - Maintained project code in GitHub (#ghLink) with clear structure and documentation.
           ]
         } else {
           noSimple[
             - Completed a series of programming projects in Java for a Data Structures and Algorithms course, implementing core data structures such as linked lists, stacks, queues, binary search trees, and hash maps.
             - Developed search algorithms including BFS, DFS, and A\* for maze-solving and pathfinding problems.
             - Built and tested algorithmic game strategies and simulations, focusing on efficiency, correctness, and performance analysis.
-            - Organized coursework, labs, and project code in a structured GitHub repository (#ghLink) with documentation and version control.
+            - Organized project code in a structured GitHub repository (#ghLink) with documentation and version control.
           ]
         }
       ],
@@ -324,8 +325,42 @@
       )[#noSimple[
         - 使用 Java 完成数据结构与算法课程的一系列编程项目，实现了链表、栈、队列、二叉搜索树和哈希表等核心数据结构。
         - 编写并应用 BFS、DFS 和 A\* 搜索算法解决迷宫寻路与路径规划问题。
-        - 设计并测试算法博弈策略与模拟程序，注重效率、正确性和性能分析。
         - 将课程作业、实验和项目代码系统整理至 GitHub 仓库 (#ghLink)，并进行文档管理与版本控制。
+      ]],
+    )
+  }
+
+  let cs252-project = {
+    let cs252-date = [_#translate-date(1, 2026) -- #translate(en: [Present], zh: [至今])_]
+    let ghLink = githublink("LLLgoyour/cs252")
+    translate(
+      en: cventry(
+        tl: [*CS252 Mathematical Data Analysis & Visualization Projects*],
+        tr: cs252-date,
+      )[#if is-job {
+          [
+            - Implemented linear/multiple/polynomial regression pipelines with SciPy least-squares, normal-equation, and QR-based solvers, including residual, $R^2$, and MSE diagnostics.
+            - Implemented K-means clustering from scratch with randomized initialization, centroid updates, inertia tracking, multi-run selection, and image-segmentation utilities.
+            - Maintained project code in GitHub (#ghLink) with clear structure and version control.
+          ]
+        } else {
+          noSimple[
+            - Completed CS252 projects and labs in Python, building reusable data-analysis code and notebook-based workflows for real datasets.
+            - Implemented data ingestion, vectorized statistics, and visualization utilities using NumPy and Matplotlib.
+            - Developed regression workflows (linear, multiple, and polynomial), including solver comparisons with SciPy, normal equations, and QR decomposition.
+            - Implemented K-means clustering and segmentation workflows, with iterative optimization and model-selection diagnostics.
+            - Organized project code in GitHub (#ghLink) with clear structure and version control.
+          ]
+        }
+      ],
+      zh: cventry(
+        tl: [*CS 252：数学数据分析与可视化项目*],
+        tr: cs252-date,
+      )[#noSimple[
+        - 在 CS252 中使用 Python 构建可复用的数据分析代码（Data/Analysis 类），实现类型化 CSV 解析、缺失值处理与向量化统计。
+        - 实现线性/多元/多项式回归流程，对比 SciPy 最小二乘、正规方程与 QR 分解求解，并完成残差、$R^2$ 与 MSE 评估。
+        - 从零实现 K-means 聚类，包括随机初始化、质心迭代更新、inertia 追踪、多次运行择优，以及图像分割应用。
+        - 在实验中系统使用 NumPy 逻辑索引与数据变换（归一化/中心化/旋转），结合 Matplotlib 与 Jupyter 完成可视化分析；代码统一维护于 GitHub (#ghLink)。
       ]],
     )
   }
@@ -364,9 +399,9 @@
 
     let webDev = translate(
       en: [
-        - Web Development: *3 years of experience*, familiar with mainstream languages including Vue.JS.
+        - Web Development: *3 years of experience*, familiar with mainstream languages including Vue.js.
       ],
-      zh: [- 网页开发：*3 年开发经验*，熟悉主流框架与语言如Vue.JS。],
+      zh: [- 网页开发：*3 年开发经验*，熟悉主流框架与语言如Vue.js。],
     )
     let office-tools = translate(
       en: [
@@ -385,13 +420,13 @@
     translate(
       en: [
         - Languages: Java, Python, TypeScript, JavaScript, C++, Go, HTML/CSS
-        - Frameworks and Tools: Vue.js, Git, GitHub, Jupyter, NumPy, LaTeX/Typst
-        - Relevant Concepts: data structures, graph search (BFS/DFS/A\*), debugging, complexity analysis, technical writing
+        - Frameworks and Tools: NumPy, SciPy, Pandas, Matplotlib, Jupyter, Vue.js, Git/GitHub, LaTeX/Typst
+        - Relevant Algorithm Concepts: data structures, graph search (BFS/DFS/A\*), regression modeling, QR decomposition, clustering, data transformation, debugging, complexity analysis
       ],
       zh: [
         - 编程语言：Java、Python、TypeScript、JavaScript、C++、Go、HTML/CSS
-        - 框架与工具：Vue.js、Git、GitHub、Jupyter、NumPy、LaTeX/Typst
-        - 相关能力：数据结构、图搜索（BFS/DFS/A\*）、调试、复杂度分析、技术写作
+        - 框架与工具：NumPy、SciPy、Pandas、Matplotlib、Jupyter、Vue.js、Git/GitHub、LaTeX/Typst
+        - 相关能力：数据结构、图搜索（BFS/DFS/A\*）、回归建模、QR 分解、聚类分析、数据变换、调试、复杂度分析
       ],
     )
   }
@@ -453,9 +488,10 @@
 
   if is-job {
     translate(en: [== Technical Projects], zh: [== 技术项目])
+    ymca-exhibit
+    cs252-project
     cs231-project
     lui-project
-    ymca-exhibit
 
     translate(en: [== Selected Achievement], zh: [== 代表性成就])
     achievements
@@ -477,6 +513,7 @@
 
     translate(en: [== Related Projects], zh: [== 项目经历])
     ymca-exhibit
+    cs252-project
     cs231-project
     lui-project
 
@@ -495,11 +532,7 @@
 
   noJob[
     // https://github.com/typst/typst/issues/1462
-    {
-    set text(size: 0pt)
-    [@YMCA]
-    noSimple[]
-    }
+    #hide([@YMCA])
     #translate(en: [== Works in Progress], zh: [== 准备发布的论文])
     #bibliography("pub.bib", title: none)
   ]
